@@ -1,18 +1,31 @@
 /*
-DOM(Document Object Model)
-  DOM SCRIPT 구성시 외부 자스파일 연결방법
-  ECMA script (자바스크립트 표준안)
-  ES5, ES6 (2015)
-  브라우저는 코드를 위에서 부터 아래로 읽어줌
-  예전 자바스크립트 연결 방식
-  -- 물리적으로 외부스크립트 호출 구문을 body 아래쪽에 배치해서 모든 DOM이 렌더링된 이후 호출
+자료형 (Data Type)
+원시형자료 (primitve type) : 특정 값이 메모리에 바로 저장(값만 저장)
+1. 문자열 (string)
+2. 숫자 (number)
+3. 불린형 (boolean): true, false
+4. undefined : 변수를 만들고 값을 할당하지 않으면 undefined 대신 저장 (에러 상황)
 
-  요즘 자바스크립트 연결 방식
-  -- 외부 자바스크립트 호출시 앞쪽에 defer 키워드 연결
-  -- 자바스크립트와 DOM 출력을 비동기적으로 실행 (병렬식 실행)
-  -- 외부 스크립트와 body 해석을 동시에 시작하고 body 안쪽의 모든 DOM 요소가 렌더링 완료되면 그때 비로소 SCRIPT 파일 호출
+참조형자료 (reference type) : 값의 참조 주소값만 메모리에 저장(관련 내장함수까지 같이 참조)
+5. null (object) 명시적으로(일부로) 값을 비워둔 경우
+6. 배열 (array) : 여러개의 값들을 그룹으로 묶어서 저장된 형태 (각 값들은 순서 값으로 탐색 가능)
+7. 객체 (object) : 여러개의 값들을 그룹으로 묶어서 저장된 형태 (각 값마다 고유의 key 값을 넣어서 저장하고 탐색 가능)
 */
-  console.log('main');
 
-var h1El = document.querySelector('h1');
-console.log(h1El)
+var num1 = '2'; //문자
+var num2 = 2; //숫자
+var isOk = true; //boolean
+var error; //undefined
+var isBlank = null; //object
+// 같은 성격의 일련의 데이터들을 그룹형태로 저장할 때
+var colors = ['red', 'green', 'blue']; //array
+console.log(colors[0]); //red
+
+// 성격이 다른 데이터들을 property에 담아서 구조적으로 저장할 때
+var student1 = {
+  name: 'David',
+  age : 20,
+  address: 'seoul',
+  isFemale: false
+};
+console.log(student1.name);//David
