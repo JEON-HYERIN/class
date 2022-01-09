@@ -44,3 +44,24 @@ console.log(box2.nextElementSibling);
 var a = box2.querySelector('a');
 console.log(a.parentElement.nextElementSibling); //box3
 console.log(a.closest('#wrap').querySelector('.box3')); //box3
+
+var box1 = document.querySelector('.box1');
+// box1.onclick = function () {
+//   console.log('엄청 중요한 코드');
+// }
+// box1.onclick = function () {
+//   console.log('엄청 중요한 코드2');
+// }
+// box1.onclick = function () {
+//   console.log('엄청 중요한 코드3');
+// }
+
+box1.addEventListener('click', function () {
+  console.log('매우 중요한 코드1');
+});
+box1.addEventListener('click', function () {
+  console.log('매우 중요한 코드2');
+});
+box1.addEventListener('click', function () {
+  console.log('매우 중요한 코드3');
+});
