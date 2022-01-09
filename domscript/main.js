@@ -1,17 +1,22 @@
-var box1 = document.querySelector('.box1');
-var box2 = document.querySelector('.box2');
-
 /*
-특정 DOM의 스타일 값 변경
-DOM.style.속성명 = '대입할 값';
+속성 : Attribute
 
-특정 DOM의 스타일 값 가져올 때
-getComputedStyle(DOM).속성명
+속성값을 구할 때 
+getAttribute('속성명')
+
+속성값을 바꿀 때
+setAttribute('변경할 속성명', '변경할 속성값')
+
+텍스트 변경
+요소.innerText = '변경할 텍스트'
 */
 
-box1.addEventListener('click', function (e) {
-  e.currentTarget.style.backgroundColor = 'lightgreen';
-});
+var a = document.querySelector('a');
+var result = a.getAttribute('title');
+console.log(result);
 
-console.log(getComputedStyle(box2).backgroundColor);
-console.log(getComputedStyle(box2)['backgroundColor']);
+a.setAttribute('href', 'https://nate.com');
+a.setAttribute('title', '네이트로 이동');
+
+console.log(a.innerText);
+a.innerText = 'NATE';
