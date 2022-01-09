@@ -74,3 +74,15 @@ var text = 'TYPOGRAPHY';
 for(var a of text) {
   console.log(a);
 }
+
+var number = [1, 2, 3, 4, 5, 6];
+var newNumber = number.filter(function (el) {
+  return el < 4;
+});
+console.log(newNumber);
+
+var list = ['a', 'bb', 'ccc', 'dddd', 'eeeee', 'ffffff'];
+var newList = list.filter(function (el) {
+  return el.length > 4;
+});
+console.log(newList);
