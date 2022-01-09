@@ -1,8 +1,15 @@
 @charset "UTF-8";
 
-#wrap {
-  border: 1px solid red;
+.box {
+  width: 300px;
+  height: 300px;
+  margin: 50px;
+  float: left;
+  background-color: aqua;
 }
-#wrap article {
-  border: 1px solid blue;
+.box1 {
+  background-color: aqua;
+}
+.box2 {
+  background-color: hotpink;
 }
