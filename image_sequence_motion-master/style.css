@@ -10,6 +10,12 @@ main {
    background-color: #000;
    overflow: hidden;
    position: relative;
+   opacity: 0;
+   transition: .3s;
+}
+
+main.on {
+   opacity: 1;
 }
 
 main img {

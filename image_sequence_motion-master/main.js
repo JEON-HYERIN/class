@@ -11,19 +11,33 @@
 document.createElement("DOM이름");
 */
 
-var main = document.querySelector('main');
 /*
-var tags = '';
+HTML DOM이 모두 화면상에 렌더링 완료됐다고 하더라도 해당 태그에 수반되는 소스 이미지와 영상이 로딩완료와는 별개
 
-for(var i=0; i<200; i++) {
-  tags += "<img src='img/pic"+ i +".jpg'>";
-}
-
-main.innerHTML = tags;
+시스템이 발생시키는 이벤트
+onload load
+DOM에 수반되는 소스자료까지 모두 완료되어야 실행되는 이벤트
 */
+
+var main = document.querySelector('main');
 
 for(var i=0; i<200; i++) {
   var imgNode = document.createElement('img');
   imgNode.setAttribute('src','img/pic' + i + '.jpg');
   main.append(imgNode);
 }
+
+var imgs = main.querySelectorAll('img');
+var len = imgs.length;
+var count = 0;
+
+imgs.forEach(function (img) {
+  img.onload = function() {
+    count++;
+    console.log(count);
+
+    if (count === len)  {
+      main.classList.add('on');
+    }
+  }
+});
