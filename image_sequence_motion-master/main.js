@@ -24,6 +24,7 @@ parseFloat() : 실수형의 숫자로 바꿔줌
 
 var main = document.querySelector('main');
 var loading = document.querySelector('aside');
+var txt = document.querySelector('p');
 
 for(var i=0; i<200; i++) {
   var imgNode = document.createElement('img');
@@ -37,6 +38,9 @@ imageLoaded();
 // 화면에 마우스무브 이벤트 연결
 window.addEventListener('mousemove', function (e) {
   var x = e.pageX; //마우스 가로 위치
+  var y = e.pageY; //마우스 세로 위치
+  var cx = x/10;
+  var cy = y/10;
   var wid = window.innerWidth; // 화면 너비
   var percent = parseInt((x/wid)*200); // 현재 마우스 위치를 백분율로 환산
   var imgs = document.querySelectorAll('main img');
@@ -44,6 +48,8 @@ window.addEventListener('mousemove', function (e) {
   for(var img of imgs) img.style.display = 'none';
   // percent 위치에 해당하는 이미지만 보이게 처리
   imgs[percent].style.display = 'block';
+
+  txt.style.transform = 'translate('+cx+"px, "+cy+"px)";
 });
 
 // 모든 이미지 태그의 소스 이미지 로딩 완료시에 로딩화면 처리하는 함수 정의

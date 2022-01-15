@@ -6,11 +6,16 @@
 
 body {
    background-color: #000;
+   width: 100%;
+   height: 100vh;
+   display: flex;
+   align-items: center;
 }
+
 
 main {
    width: 100%;
-   height: 100vh;
+   height: 60vh;
    background-color: #000;
    overflow: hidden;
    position: relative;
@@ -32,10 +37,26 @@ main img {
    transition: .3s;
 }
 
+p {
+   width: 100%;
+   height: 100vh;
+   font: bold 10vw/1 'orbitron';
+   letter-spacing: 2px;
+   color: #fff;
+   position: absolute;
+   top: 0; 
+   left: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-shadow: 10px 10px 10px rgba(0,0,0,0.3);
+}
+
 aside {
    width: 100%;
    height: 100vh;
    position: fixed;
+   background-color: #111;
    top: 0;
    left: 0;
    display: flex;
@@ -43,7 +64,7 @@ aside {
    align-items: center;
    font-size: 50px;
    color: #fff;
-   transition: 2.5s;
+   transition: opacity 2.5s;
 }
 
 aside.off {
