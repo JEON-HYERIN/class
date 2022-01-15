@@ -17,6 +17,9 @@ HTML DOM이 모두 화면상에 렌더링 완료됐다고 하더라도 해당 �
 시스템이 발생시키는 이벤트
 onload load
 DOM에 수반되는 소스자료까지 모두 완료되어야 실행되는 이벤트
+
+parseInt() : 정수형의 숫자로 바꿔줌
+parseFloat() : 실수형의 숫자로 바꿔줌
 */
 
 var main = document.querySelector('main');
@@ -31,11 +34,14 @@ for(var i=0; i<200; i++) {
 var imgs = main.querySelectorAll('img');
 var len = imgs.length;
 var count = 0;
+var percent = 0;
 
 imgs.forEach(function (img) {
   img.onload = function() {
     count++;
-    loading.innerText = count + '/' + len;
+    percent = parseInt((count / len) * 100);
+    console.log(percent)
+    loading.innerText = count + '/' + len + '(' + percent + '%)';
 
     if (count === len)  {
       main.classList.add('on');
