@@ -31,25 +31,55 @@ for(var i=0; i<200; i++) {
   main.append(imgNode);
 }
 
-var imgs = main.querySelectorAll('img');
-var len = imgs.length;
-var count = 0;
-var percent = 0;
+// 이미지 로딩 처리
+imageLoaded();
 
-imgs.forEach(function (img) {
-  img.onload = function() {
-    count++;
-    percent = parseInt((count / len) * 100);
-    console.log(percent)
-    loading.innerText = count + '/' + len + '(' + percent + '%)';
-
-    if (count === len)  {
-      main.classList.add('on');
-      loading.classList.add('off');
-      //시간지연함수 - 2.5초 후에 함수 실행
-      setTimeout(function () {
-        loading.remove();
-      }, 2500);
-    }
-  }
+// 화면에 마우스무브 이벤트 연결
+window.addEventListener('mousemove', function (e) {
+  var x = e.pageX; //마우스 가로 위치
+  var wid = window.innerWidth; // 화면 너비
+  var percent = parseInt((x/wid)*200); // 현재 마우스 위치를 백분율로 환산
+  var imgs = document.querySelectorAll('main img');
+  //순간적으로 모든 이미지를 안보이게 초기화
+  for(var img of imgs) img.style.display = 'none';
+  // percent 위치에 해당하는 이미지만 보이게 처리
+  imgs[percent].style.display = 'block';
 });
+
+// 모든 이미지 태그의 소스 이미지 로딩 완료시에 로딩화면 처리하는 함수 정의
+function imageLoaded() {
+  var imgs = main.querySelectorAll('img');
+  var len = imgs.length;
+  var count = 0;
+  var percent = 0;
+  
+  // 모든 이미지의 개수를 구해서 초기값 count를 로딩이 될 때마다 1씩 증가시키고
+  // 전체갯수 len과 같아지면 모두 로딩 완료된 것이므로
+  // 로딩 화면은 사라지고 이미지를 화면에 보이게 처리
+  imgs.forEach(function (img) {
+    img.onload = function() {
+      count++;
+      percent = parseInt((count / len) * 100);
+      // console.log(percent)
+      loading.innerText = count + '/' + len + '(' + percent + '%)';
+  
+      if (count === len)  {
+        main.classList.add('on');
+        loading.classList.add('off');
+        //시간지연함수 - 2.5초 후에 함수 실행
+        setTimeout(function () {
+          loading.remove();
+        }, convertSpeed(loading));
+      }
+    }
+  });
+}
+
+
+// loading의 transition-duration 값 가져와서 setTimeout에 적용
+
+function convertSpeed (el) {
+  var speed = getComputedStyle(el).transitionDuration;
+  speed = parseFloat(speed) * 1000;
+  return speed;
+}
