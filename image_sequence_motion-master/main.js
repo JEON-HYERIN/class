@@ -20,6 +20,7 @@ DOM에 수반되는 소스자료까지 모두 완료되어야 실행되는 이�
 */
 
 var main = document.querySelector('main');
+var loading = document.querySelector('aside');
 
 for(var i=0; i<200; i++) {
   var imgNode = document.createElement('img');
@@ -34,10 +35,15 @@ var count = 0;
 imgs.forEach(function (img) {
   img.onload = function() {
     count++;
-    console.log(count);
+    loading.innerText = count + '/' + len;
 
     if (count === len)  {
       main.classList.add('on');
+      loading.classList.add('off');
+      //시간지연함수 - 2.5초 후에 함수 실행
+      setTimeout(function () {
+        loading.remove();
+      }, 2500);
     }
   }
 });
