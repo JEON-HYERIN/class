@@ -1,0 +1,76 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box; }
+
+ul, ol {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
+#gallery {
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+}
+
+#gallery h1 {
+  font: 8vw/1 'arial';
+  color: #fff;
+  position: absolut;
+  left: 5vw;
+  top: 30vh;
+}
+
+#gallery .showBox {
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/pic1.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#gallery .controls {
+  width: 40vw;
+  padding: 50px;
+  background: rgba(0, 0, 0, .7);
+  position: absolute;
+  bottom: 20vh;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#gallery .controls .btns {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+#gallery .controls .btns li a {
+  font: bold 12px/1 'arial';
+  color: #888;
+}
+
+#gallery .controls .btns li a.on {
+  color: #fff;
+}
+
+#gallery .controls div {
+  width: 100%;
+  margin-top: 30px;
+  padding-left: 30px;
+  color: #888;
+}
+
+#gallery .controls div strong {
+  font-size: 40px;
+  color: #fff;
+}
+
+#gallery .controls div span {
+  font-size: 14px;
+  color: #888;
+}
